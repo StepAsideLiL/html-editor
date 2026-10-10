@@ -46,8 +46,6 @@ const CONTENT_TYPES: Record<string, string> = {
 
 const HTML_RE = /\.html?$/i;
 
-const appTranspiler = new Bun.Transpiler({ loader: "ts" });
-
 function json<T extends object>(body: T, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
@@ -135,12 +133,29 @@ async function handleApi(req: Request, url: URL, cwd: string): Promise<Response>
   return json<ApiError>({ error: "unknown route" }, 404);
 }
 
+async function buildAppBundle(): Promise<string> {
+  const result = await Bun.build({
+    entrypoints: [join(PUBLIC_DIR, "app.ts")],
+    target: "browser",
+    format: "esm",
+    write: false,
+    minify: false,
+  } as Bun.BuildConfig);
+  if (!result.success) {
+    const message = result.logs.map((log) => log.message).join("\n");
+    throw new Error("bundle failed:\n" + message);
+  }
+  const output = result.outputs[0];
+  if (!output) throw new Error("bundle produced no output");
+  return await output.text();
+}
+
 async function serveStatic(pathname: string): Promise<Response> {
   const path = pathname === "/" ? "/index.html" : pathname;
 
   if (path === "/app.js") {
-    const src = await readFile(join(PUBLIC_DIR, "app.ts"), "utf8");
-    return new Response(appTranspiler.transformSync(src), {
+    const js = await buildAppBundle();
+    return new Response(js, {
       headers: { "content-type": "text/javascript; charset=utf-8" },
     });
   }

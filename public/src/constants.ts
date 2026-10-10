@@ -1,0 +1,70 @@
+export const ROOT_ID = "root";
+
+export const VOID_TAGS = new Set<string>([
+  "area", "base", "br", "col", "embed", "hr", "img", "input",
+  "link", "meta", "param", "source", "track", "wbr",
+]);
+
+export const ALL_TAGS: string[] = [
+  "div", "section", "article", "header", "footer", "main", "nav", "aside",
+  "h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "a", "strong", "em",
+  "small", "mark", "blockquote", "pre", "code", "ul", "ol", "li", "dl",
+  "dt", "dd", "table", "thead", "tbody", "tfoot", "tr", "th", "td",
+  "caption", "figure", "figcaption", "img", "picture", "video", "audio",
+  "source", "iframe", "canvas", "form", "label", "input", "textarea",
+  "select", "option", "button", "fieldset", "legend", "hr", "br",
+  "address", "time", "details", "summary", "dialog",
+];
+
+export interface PaletteGroup {
+  group: string;
+  tags: string[];
+}
+
+export const PALETTE: PaletteGroup[] = [
+  { group: "Layout", tags: ["div", "section", "header", "footer", "main", "nav", "aside", "article"] },
+  { group: "Text", tags: ["h1", "h2", "h3", "p", "span", "a", "blockquote", "pre", "code"] },
+  { group: "Lists", tags: ["ul", "ol", "li"] },
+  { group: "Media", tags: ["img", "figure", "video", "audio"] },
+  { group: "Forms", tags: ["form", "input", "textarea", "select", "button", "label"] },
+  { group: "Table", tags: ["table", "tr", "th", "td"] },
+  { group: "Other", tags: ["hr", "br", "iframe"] },
+];
+
+export const DEFAULTS: Record<string, Record<string, string>> = {
+  a: { href: "#" },
+  img: { src: "https://placehold.co/320x180", alt: "image" },
+  input: { type: "text", placeholder: "" },
+  textarea: { rows: "3" },
+  button: { type: "button" },
+  iframe: { src: "about:blank", width: "100%", height: "200" },
+  video: { controls: "" },
+  audio: { controls: "" },
+  form: { method: "get" },
+  ol: {},
+  ul: {},
+};
+
+export const DEFAULT_TEXT: Record<string, string> = {
+  h1: "Heading 1", h2: "Heading 2", h3: "Heading 3",
+  h4: "Heading 4", h5: "Heading 5", h6: "Heading 6",
+  p: "Paragraph text.", a: "Link", button: "Button",
+  li: "List item", span: "Text", strong: "Bold", em: "Italic",
+  blockquote: "Quote", label: "Label", td: "Cell", th: "Header",
+  option: "Option", summary: "Summary", figcaption: "Caption",
+  title: "Title", legend: "Legend", caption: "Caption",
+};
+
+export const CSS_PROPS: string[] = [
+  "display", "position", "top", "right", "bottom", "left", "width", "height",
+  "min-width", "max-width", "min-height", "max-height", "margin", "margin-top",
+  "margin-right", "margin-bottom", "margin-left", "padding", "padding-top",
+  "padding-right", "padding-bottom", "padding-left", "background",
+  "background-color", "background-image", "background-size", "background-position",
+  "color", "font-family", "font-size", "font-weight", "font-style", "line-height",
+  "text-align", "text-decoration", "letter-spacing", "border", "border-radius",
+  "border-color", "border-width", "border-style", "box-shadow", "opacity",
+  "overflow", "z-index", "flex", "flex-direction", "justify-content",
+  "align-items", "gap", "grid-template-columns", "grid-template-rows",
+  "cursor", "transition", "transform",
+];
