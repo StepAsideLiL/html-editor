@@ -1,0 +1,23 @@
+{
+  "name": "html-editor",
+  "version": "1.0.0",
+  "description": "Visual HTML page builder that lists and edits HTML files in the current directory.",
+  "type": "module",
+  "module": "src/server.ts",
+  "bin": {
+    "html-editor": "bin/html-editor.ts"
+  },
+  "files": [
+    "bin",
+    "src",
+    "public"
+  ],
+  "scripts": {
+    "start": "bun run src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+.bun/
+
+# build output
+dist/
+build/
+out/
+public/app.js
+
+# typescript
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+
+# env
+.env
+.env.*
+!.env.example
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
