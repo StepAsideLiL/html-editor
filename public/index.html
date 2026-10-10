@@ -1,41 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>html-editor</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-  <header class="toolbar">
-    <div class="brand">html<span>·</span>editor</div>
-    <div class="file-name" id="fileName">no file open</div>
-    <div class="spacer"></div>
-    <button id="btnNew" class="btn">New file</button>
-    <button id="btnPreview" class="btn">Preview</button>
-    <button id="btnSave" class="btn primary" disabled>Save</button>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html-editor</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="brand">html<span>·</span>editor</div>
+      <div class="file-name" id="fileName">no file open</div>
+      <div class="spacer"></div>
+      <button id="btnNew" class="btn">New file</button>
+      <button id="btnPreview" class="btn">Preview</button>
+      <button id="btnSave" class="btn primary" disabled>Save</button>
+    </header>
 
-  <main class="layout">
-    <aside class="panel sidebar">
-      <div class="panel-title">HTML files <button id="btnRefresh" class="mini" title="Refresh">⟳</button></div>
-      <div id="fileList" class="file-list"></div>
-      <div class="panel-title tree-title">Elements</div>
-      <div id="treeBox" class="tree"></div>
-    </aside>
+    <main class="layout">
+      <aside class="panel sidebar">
+        <div class="panel-title">
+          HTML files <button id="btnRefresh" class="mini" title="Refresh">⟳</button>
+        </div>
+        <div id="fileList" class="file-list"></div>
+        <div class="panel-title tree-title">Elements</div>
+        <div id="treeBox" class="tree"></div>
+      </aside>
 
-    <section class="canvas-wrap">
-      <div id="canvas" class="canvas"></div>
-    </section>
+      <section class="canvas-wrap">
+        <div id="canvas" class="canvas"></div>
+      </section>
 
-    <aside class="panel properties">
-      <div class="panel-title">Properties</div>
-      <div id="props" class="props"></div>
-    </aside>
-  </main>
+      <aside class="panel properties">
+        <div class="panel-title">Properties</div>
+        <div id="props" class="props"></div>
+      </aside>
+    </main>
 
-  <footer class="palette" id="palette"></footer>
+    <footer class="palette" id="palette"></footer>
 
-  <script src="/app.js" type="module"></script>
-</body>
+    <script src="/app.js" type="module"></script>
+  </body>
 </html>

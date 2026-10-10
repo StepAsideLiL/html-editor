@@ -66,7 +66,10 @@ export function cloneNode(node: ModelNode): ModelNode {
 }
 
 export function getElementText(node: ElementNode): string {
-  return node.children.filter(isTextNode).map((child) => child.text).join("");
+  return node.children
+    .filter(isTextNode)
+    .map((child) => child.text)
+    .join("");
 }
 
 export function hasElementChildren(node: ElementNode): boolean {

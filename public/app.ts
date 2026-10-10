@@ -49,7 +49,7 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("beforeunload", (e) => {
   if (state.dirty) {
     e.preventDefault();
-    e.returnValue = "";
+    // e.returnValue = "";
   }
 });
 

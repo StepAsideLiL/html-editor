@@ -1,13 +1,7 @@
 import type { ElementNode, FileInfo } from "./types.ts";
 import { ROOT_ID } from "./constants.ts";
 
-export type ChangeReason =
-  | "select"
-  | "structure"
-  | "content"
-  | "canvas"
-  | "files"
-  | "title";
+export type ChangeReason = "select" | "structure" | "content" | "canvas" | "files" | "title";
 
 export interface AppState {
   root: ElementNode;

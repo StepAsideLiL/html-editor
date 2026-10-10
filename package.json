@@ -14,10 +14,23 @@
   ],
   "scripts": {
     "start": "bun run src/server.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "prettier": {
+    "semi": true,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": false,
+    "printWidth": 100,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "arrowParens": "always"
   },
   "devDependencies": {
     "@types/bun": "^1.4.2",
+    "prettier": "^3.9.10",
     "typescript": "^7.0.2"
   }
 }

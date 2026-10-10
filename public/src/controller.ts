@@ -60,7 +60,7 @@ function resolveInsertionParent(): ElementNode {
   if (!state.selectedId) return state.root;
   const selected = findNode(state.selectedId);
   if (!selected) return state.root;
-  let parent = isTextNode(selected) ? findParent(selected.id) ?? state.root : selected;
+  let parent = isTextNode(selected) ? (findParent(selected.id) ?? state.root) : selected;
   if (parent !== state.root && VOID_TAGS.has(parent.tag)) {
     parent = findParent(parent.id) ?? state.root;
   }
@@ -164,7 +164,12 @@ export function setAttribute(node: ElementNode, key: string, value: string): voi
   emit("canvas");
 }
 
-export function renameAttribute(node: ElementNode, oldKey: string, newKey: string, value: string): void {
+export function renameAttribute(
+  node: ElementNode,
+  oldKey: string,
+  newKey: string,
+  value: string,
+): void {
   delete node.attrs[oldKey];
   node.attrs[newKey] = value;
   markDirty();
@@ -183,7 +188,12 @@ export function setStyle(node: ElementNode, prop: string, value: string): void {
   emit("canvas");
 }
 
-export function renameStyle(node: ElementNode, oldProp: string, newProp: string, value: string): void {
+export function renameStyle(
+  node: ElementNode,
+  oldProp: string,
+  newProp: string,
+  value: string,
+): void {
   delete node.styles[oldProp];
   node.styles[newProp] = value;
   markDirty();

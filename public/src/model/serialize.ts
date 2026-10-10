@@ -29,7 +29,9 @@ export function serializeNode(node: ModelNode, indent: number): string {
 
   const hasElements = node.children.some((child) => !isTextNode(child));
   if (!hasElements) {
-    const inner = node.children.map((child) => (isTextNode(child) ? escHtml(child.text) : "")).join("");
+    const inner = node.children
+      .map((child) => (isTextNode(child) ? escHtml(child.text) : ""))
+      .join("");
     return out + inner + `</${node.tag}>`;
   }
 

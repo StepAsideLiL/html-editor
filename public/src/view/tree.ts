@@ -71,5 +71,7 @@ function treeRow(node: ModelNode, depth: number): HTMLDivElement {
 }
 
 function clearDropVisuals(): void {
-  $$(".tree-row").forEach((row) => row.classList.remove("drop-before", "drop-after", "drop-inside"));
+  $$(".tree-row").forEach((row) =>
+    row.classList.remove("drop-before", "drop-after", "drop-inside"),
+  );
 }

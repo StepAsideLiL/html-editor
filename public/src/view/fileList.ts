@@ -7,7 +7,8 @@ export function renderFileList(): void {
   box.innerHTML = "";
 
   if (!state.files.length) {
-    box.innerHTML = '<div class="empty-canvas" style="padding:20px 6px">No .html files found.</div>';
+    box.innerHTML =
+      '<div class="empty-canvas" style="padding:20px 6px">No .html files found.</div>';
     return;
   }
 
