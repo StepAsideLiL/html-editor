@@ -1,4 +1,4 @@
 #!/usr/bin/env bun
-import { startServer } from "../src/server.ts";
+import { main } from "../src/main.ts";
 
-startServer();
+main();

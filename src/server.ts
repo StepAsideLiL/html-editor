@@ -3,6 +3,10 @@ import { readdir, stat, readFile, writeFile, unlink } from "node:fs/promises";
 
 type Server = ReturnType<typeof Bun.serve>;
 
+interface StartOptions {
+  port?: number;
+}
+
 interface FileInfo {
   name: string;
   size: number;
@@ -199,9 +203,9 @@ function openBrowser(url: string): void {
   } catch {}
 }
 
-export function startServer(): Server {
+export function startServer(options: StartOptions = {}): Server {
   const cwd = process.cwd();
-  let port = Number(process.env.PORT) || 5173;
+  let port = (options.port ?? Number(process.env.PORT)) || 5173;
   let server: Server | undefined;
   for (let i = 0; i < 25; i++) {
     try {
@@ -219,5 +223,3 @@ export function startServer(): Server {
   openBrowser(url);
   return server;
 }
-
-if (import.meta.main) startServer();

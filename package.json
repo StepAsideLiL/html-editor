@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Visual HTML page builder that lists and edits HTML files in the current directory.",
   "type": "module",
-  "module": "src/server.ts",
+  "module": "src/main.ts",
   "bin": {
     "html-editor": "bin/html-editor.ts"
   },
@@ -13,7 +13,7 @@
     "public"
   ],
   "scripts": {
-    "start": "bun run src/server.ts",
+    "start": "bun run src/main.ts",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
